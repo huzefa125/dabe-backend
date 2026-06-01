@@ -1,0 +1,124 @@
+{
+  "kind": "singleType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "Hero Section",
+    "description": "Configurable hero section for the website"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "default": "Welcome to Our Site"
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 300,
+      "default": "Your journey starts here"
+    },
+    "description": {
+      "type": "richtext",
+      "maxLength": 2000,
+      "default": "Discover amazing features and experiences"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "maxLength": 50,
+      "default": "Get Started"
+    },
+    "primaryButtonLink": {
+      "type": "string",
+      "maxLength": 500,
+      "default": "/get-started"
+    },
+    "primaryButtonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "outline",
+        "ghost"
+      ],
+      "default": "primary"
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "secondaryButtonLink": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "secondaryButtonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "outline",
+        "ghost"
+      ],
+      "default": "secondary"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#3b82f6"
+    },
+    "backgroundGradient": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "parallaxEnabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationStyle": {
+      "type": "enumeration",
+      "enum": [
+        "fade",
+        "slide",
+        "zoom",
+        "bounce",
+        "none"
+      ],
+      "default": "fade"
+    },
+    "minHeight": {
+      "type": "string",
+      "default": "100vh"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "customCSS": {
+      "type": "text",
+      "maxLength": 2000
+    }
+  }
+}
