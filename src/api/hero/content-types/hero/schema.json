@@ -8,22 +8,20 @@
     "description": "Configurable hero section for the website"
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
+      "default": "Welcome to Our Site",
       "maxLength": 200,
-      "default": "Welcome to Our Site"
+      "required": true
     },
     "subtitle": {
       "type": "string",
-      "maxLength": 300,
-      "default": "Your journey starts here"
+      "default": "Your journey starts here",
+      "maxLength": 300
     },
     "description": {
       "type": "richtext",
@@ -41,23 +39,23 @@
     },
     "primaryButtonText": {
       "type": "string",
-      "maxLength": 50,
-      "default": "Get Started"
+      "default": "Get Started",
+      "maxLength": 50
     },
     "primaryButtonLink": {
       "type": "string",
-      "maxLength": 500,
-      "default": "/get-started"
+      "default": "/get-started",
+      "maxLength": 500
     },
     "primaryButtonStyle": {
       "type": "enumeration",
+      "default": "primary",
       "enum": [
         "primary",
         "secondary",
         "outline",
         "ghost"
-      ],
-      "default": "primary"
+      ]
     },
     "secondaryButtonText": {
       "type": "string",
@@ -69,13 +67,13 @@
     },
     "secondaryButtonStyle": {
       "type": "enumeration",
+      "default": "secondary",
       "enum": [
         "primary",
         "secondary",
         "outline",
         "ghost"
-      ],
-      "default": "secondary"
+      ]
     },
     "backgroundColor": {
       "type": "string",
@@ -99,14 +97,14 @@
     },
     "animationStyle": {
       "type": "enumeration",
+      "default": "fade",
       "enum": [
         "fade",
         "slide",
         "zoom",
         "bounce",
         "none"
-      ],
-      "default": "fade"
+      ]
     },
     "minHeight": {
       "type": "string",
@@ -115,10 +113,6 @@
     "enabled": {
       "type": "boolean",
       "default": true
-    },
-    "customCSS": {
-      "type": "text",
-      "maxLength": 2000
     }
   }
 }

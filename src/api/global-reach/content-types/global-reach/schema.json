@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_reaches",
+  "info": {
+    "singularName": "global-reach",
+    "pluralName": "global-reaches",
+    "displayName": "Global Reach",
+    "description": "Global reach section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Two hubs.\\nOne worldwide network."
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

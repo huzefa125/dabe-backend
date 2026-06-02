@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "fifa_sections",
+  "info": {
+    "singularName": "fifa-section",
+    "pluralName": "fifa-sections",
+    "displayName": "FIFA Section",
+    "description": "FIFA Licensed band section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "A higher standard of representation."
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Our compliance framework"
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": "/fifa-compliance"
+    }
+  }
+}

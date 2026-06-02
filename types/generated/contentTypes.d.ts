@@ -440,6 +440,74 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFifaSectionFifaSection extends Struct.SingleTypeSchema {
+  collectionName: 'fifa_sections';
+  info: {
+    description: 'FIFA Licensed band section';
+    displayName: 'FIFA Section';
+    pluralName: 'fifa-sections';
+    singularName: 'fifa-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'/fifa-compliance'>;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Our compliance framework'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fifa-section.fifa-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'A higher standard of representation.'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGlobalReachGlobalReach extends Struct.SingleTypeSchema {
+  collectionName: 'global_reaches';
+  info: {
+    description: 'Global reach section';
+    displayName: 'Global Reach';
+    pluralName: 'global-reaches';
+    singularName: 'global-reach';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-reach.global-reach'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Two hubs.\\nOne worldwide network.'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeroHero extends Struct.SingleTypeSchema {
   collectionName: 'heroes';
   info: {
@@ -450,8 +518,6 @@ export interface ApiHeroHero extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
-    increments: true;
-    timestamps: true;
   };
   attributes: {
     accentColor: Schema.Attribute.String &
@@ -469,10 +535,6 @@ export interface ApiHeroHero extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    customCSS: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 2000;
-      }>;
     description: Schema.Attribute.RichText &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 2000;
@@ -525,6 +587,107 @@ export interface ApiHeroHero extends Struct.SingleTypeSchema {
         maxLength: 200;
       }> &
       Schema.Attribute.DefaultTo<'Welcome to Our Site'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
+  collectionName: 'players';
+  info: {
+    description: 'Player in the agency';
+    displayName: 'Player';
+    pluralName: 'players';
+    singularName: 'player';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    achievements: Schema.Attribute.JSON;
+    age: Schema.Attribute.Integer;
+    apps: Schema.Attribute.Integer;
+    assists: Schema.Attribute.Integer;
+    club: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    goals: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<'images'>;
+    isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    league: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::player.player'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    nationality: Schema.Attribute.String;
+    position: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStatStat extends Struct.CollectionTypeSchema {
+  collectionName: 'stats';
+  info: {
+    description: 'Global stats for the agency';
+    displayName: 'Global Stat';
+    pluralName: 'stats';
+    singularName: 'stat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::stat.stat'> &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    description: 'Client testimonial';
+    displayName: 'Testimonial';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Text & Schema.Attribute.Required;
+    role: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1042,7 +1205,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::fifa-section.fifa-section': ApiFifaSectionFifaSection;
+      'api::global-reach.global-reach': ApiGlobalReachGlobalReach;
       'api::hero.hero': ApiHeroHero;
+      'api::player.player': ApiPlayerPlayer;
+      'api::stat.stat': ApiStatStat;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

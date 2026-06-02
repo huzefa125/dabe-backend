@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offices",
+  "info": {
+    "singularName": "office",
+    "pluralName": "offices",
+    "displayName": "Office",
+    "description": "Office or map location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "mapX": {
+      "type": "string",
+      "required": true
+    },
+    "mapY": {
+      "type": "string",
+      "required": true
+    },
+    "isHub": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
