@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "missions",
+  "info": {
+    "singularName": "mission",
+    "pluralName": "missions",
+    "displayName": "Mission Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "text" }
+  }
+}

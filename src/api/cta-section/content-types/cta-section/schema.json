@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "cta_sections",
+  "info": {
+    "singularName": "cta-section",
+    "pluralName": "cta-sections",
+    "displayName": "CTA Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "text" },
+    "primaryButtonText": { "type": "string" },
+    "primaryButtonLink": { "type": "string" },
+    "secondaryButtonText": { "type": "string" },
+    "secondaryButtonLink": { "type": "string" }
+  }
+}

@@ -440,6 +440,70 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutAgencyAboutAgency extends Struct.SingleTypeSchema {
+  collectionName: 'about_agencies';
+  info: {
+    displayName: 'About Agency';
+    pluralName: 'about-agencies';
+    singularName: 'about-agency';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-agency.about-agency'
+    > &
+      Schema.Attribute.Private;
+    paragraphs: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCtaSectionCtaSection extends Struct.SingleTypeSchema {
+  collectionName: 'cta_sections';
+  info: {
+    displayName: 'CTA Section';
+    pluralName: 'cta-sections';
+    singularName: 'cta-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cta-section.cta-section'
+    > &
+      Schema.Attribute.Private;
+    primaryButtonLink: Schema.Attribute.String;
+    primaryButtonText: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    secondaryButtonLink: Schema.Attribute.String;
+    secondaryButtonText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFifaSectionFifaSection extends Struct.SingleTypeSchema {
   collectionName: 'fifa_sections';
   info: {
@@ -587,6 +651,100 @@ export interface ApiHeroHero extends Struct.SingleTypeSchema {
         maxLength: 200;
       }> &
       Schema.Attribute.DefaultTo<'Welcome to Our Site'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMissionMission extends Struct.SingleTypeSchema {
+  collectionName: 'missions';
+  info: {
+    displayName: 'Mission Section';
+    pluralName: 'missions';
+    singularName: 'mission';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mission.mission'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNavbarButtonNavbarButton extends Struct.SingleTypeSchema {
+  collectionName: 'navbar_buttons';
+  info: {
+    displayName: 'Navbar Button';
+    pluralName: 'navbar-buttons';
+    singularName: 'navbar-button';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navbar-button.navbar-button'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOfficeOffice extends Struct.CollectionTypeSchema {
+  collectionName: 'offices';
+  info: {
+    description: 'Office or map location';
+    displayName: 'Office';
+    pluralName: 'offices';
+    singularName: 'office';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    city: Schema.Attribute.String & Schema.Attribute.Required;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isHub: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::office.office'
+    > &
+      Schema.Attribute.Private;
+    mapX: Schema.Attribute.String & Schema.Attribute.Required;
+    mapY: Schema.Attribute.String & Schema.Attribute.Required;
+    note: Schema.Attribute.String;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1205,9 +1363,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-agency.about-agency': ApiAboutAgencyAboutAgency;
+      'api::cta-section.cta-section': ApiCtaSectionCtaSection;
       'api::fifa-section.fifa-section': ApiFifaSectionFifaSection;
       'api::global-reach.global-reach': ApiGlobalReachGlobalReach;
       'api::hero.hero': ApiHeroHero;
+      'api::mission.mission': ApiMissionMission;
+      'api::navbar-button.navbar-button': ApiNavbarButtonNavbarButton;
+      'api::office.office': ApiOfficeOffice;
       'api::player.player': ApiPlayerPlayer;
       'api::stat.stat': ApiStatStat;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

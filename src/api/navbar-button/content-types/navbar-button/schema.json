@@ -1,0 +1,16 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbar_buttons",
+  "info": {
+    "singularName": "navbar-button",
+    "pluralName": "navbar-buttons",
+    "displayName": "Navbar Button"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text": { "type": "string" },
+    "link": { "type": "string" }
+  }
+}

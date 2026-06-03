@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_agencies",
+  "info": {
+    "singularName": "about-agency",
+    "pluralName": "about-agencies",
+    "displayName": "About Agency"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": { "type": "string" },
+    "title": { "type": "string" },
+    "paragraphs": { "type": "json" }
+  }
+}
