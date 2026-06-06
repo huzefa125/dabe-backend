@@ -56,7 +56,7 @@
       "allowedTypes": ["images"]
     },
     "achievements": {
-      "type": "json"
+      "type": "text"
     }
   }
 }

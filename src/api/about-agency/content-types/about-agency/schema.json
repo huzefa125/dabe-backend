@@ -12,6 +12,6 @@
   "attributes": {
     "label": { "type": "string" },
     "title": { "type": "string" },
-    "paragraphs": { "type": "json" }
+    "paragraphs": { "type": "text" }
   }
 }

@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_configs",
+  "info": {
+    "singularName": "site-config",
+    "pluralName": "site-configs",
+    "displayName": "Site Config",
+    "description": "Global website configuration for footer and contact page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone1": { "type": "string" },
+    "phone2": { "type": "string" },
+    "whatsappUrl": { "type": "string" },
+    "addressNigeria": { "type": "text" },
+    "addressNorthAmerica": { "type": "text" },
+    "linkedinUrl": { "type": "string" },
+    "instagramUrl": { "type": "string" },
+    "twitterUrl": { "type": "string" },
+    "youtubeUrl": { "type": "string" },
+    "footerAboutText": { "type": "text" },
+    "copyrightText": { "type": "string" }
+  }
+}
