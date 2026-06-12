@@ -538,6 +538,34 @@ export interface ApiCtaSectionCtaSection extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    description: 'Frequently Asked Questions';
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFifaSectionFifaSection extends Struct.SingleTypeSchema {
   collectionName: 'fifa_sections';
   info: {
@@ -1002,6 +1030,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1533,6 +1562,7 @@ declare module '@strapi/strapi' {
       'api::about-agency.about-agency': ApiAboutAgencyAboutAgency;
       'api::contact-message.contact-message': ApiContactMessageContactMessage;
       'api::cta-section.cta-section': ApiCtaSectionCtaSection;
+      'api::faq.faq': ApiFaqFaq;
       'api::fifa-section.fifa-section': ApiFifaSectionFifaSection;
       'api::global-reach.global-reach': ApiGlobalReachGlobalReach;
       'api::hero.hero': ApiHeroHero;

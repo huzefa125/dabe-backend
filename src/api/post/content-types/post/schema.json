@@ -35,6 +35,9 @@
     },
     "coverImageUrl": {
       "type": "string"
+    },
+    "content": {
+      "type": "text"
     }
   }
 }
